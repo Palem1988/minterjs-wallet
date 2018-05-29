@@ -1,6 +1,6 @@
 {
   "name": "minterjs-wallet",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Utilities for handling Minter keys",
   "main": "dist/index.js",
   "files": [
@@ -20,7 +20,7 @@
     "url": "https://github.com/MinterTeam/minterjs-wallet.git"
   },
   "keywords": [
-    "ethereum",
+    "minter",
     "wallets",
     "keys"
   ],
