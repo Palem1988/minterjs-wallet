@@ -34,19 +34,15 @@ Constructors:
 
 Instance methods:
 
+* `getMnemonic()` - return the mnemonic phrase (12 words string)
 * `getPrivateKey()` - return the private key
 * `getPublicKey()` - return the public key
 * `getAddress()` - return the address
-* `getChecksumAddressString()` - return the [address with checksum](https://github.com/ethereum/EIPs/issues/55)
 
-All of the above instance methods return a Buffer or JSON. Use the `String` suffixed versions for a string output, such as `getPrivateKeyString()`.
+All of the above instance methods (expect mnemonic) return a Buffer or JSON. Use the `String` suffixed versions for a string output, such as `getPrivateKeyString()`.
 
 Note: `getPublicKey()` only returns uncompressed Ethereum-style public keys.
-
-For the seed we suggest to use [bip39](https://npmjs.org/package/bip39) to create one from a BIP39 mnemonic.
 
 ## License
 
 MIT License
-
-Copyright (C) 2016 Alex Beregszaszi
