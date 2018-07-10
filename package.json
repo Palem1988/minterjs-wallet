@@ -29,7 +29,6 @@
   "bugs": {
     "url": "https://github.com/MinterTeam/minter-js-wallet/issues"
   },
-  "homepage": "https://github.com/MinterTeam/minter-js-wallet",
   "dependencies": {
     "bip39": "^2.5.0",
     "bs58check": "^2.1.1",
