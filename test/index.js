@@ -1,4 +1,6 @@
 import assert from 'assert'
+import bip39 from 'bip39'
+import ethUtil from 'ethereumjs-util'
 import {Buffer} from 'safe-buffer'
 import Wallet, {seedFromMnemonic, hdKeyFromSeed} from '../index'
 
@@ -62,10 +64,21 @@ describe('.getAddressString()', function () {
   })
 })
 
+describe('generate random wallet', function () {
+  const wallet = Wallet.generate()
+  it('should have valid mnemonic', () => {
+    assert.ok(bip39.validateMnemonic(wallet.getMnemonic()))
+  })
+  it('should have valid private key', () => {
+    assert.ok(ethUtil.isValidPrivate(wallet.getPrivateKey()))
+  })
+})
+
 describe('private key only wallet', function () {
   const privKey = Buffer.from(PRIVATE_KEY, 'hex')
+  const wallet = Wallet.fromPrivateKey(privKey)
   it('.fromPrivateKey() should work', function () {
-    assert.equal(Wallet.fromPrivateKey(privKey).getPublicKey().toString('hex'),
+    assert.equal(wallet.getPublicKey().toString('hex'),
       'f9e036839a29f7fba2d5394bd489eda927ccb95acc99e506e688e4888082b3a3cb8a015b8031d02e79456aedb361fa20ec1a119d6009e5c08e9d1eeb5b29ad92')
   })
   it('.fromPrivateKey() should not accept invalid key', function () {
@@ -74,11 +87,11 @@ describe('private key only wallet', function () {
     }, /^Error: Private key does not satisfy the curve requirements \(ie. it is invalid\)$/)
   })
   it('.getAddress() should work', function () {
-    assert.equal(Wallet.fromPrivateKey(privKey).getAddress().toString('hex'), '7633980c000139dd3bd24a3f54e06474fa941e16')
+    assert.equal(wallet.getAddress().toString('hex'), '7633980c000139dd3bd24a3f54e06474fa941e16')
   })
   it('.getMnemonic() should fail', function () {
     assert.throws(function () {
-      Wallet.fromPrivateKey(privKey).getMnemonic()
+      wallet.getMnemonic()
     }, /^Error: This is a private key only wallet$/)
   })
 })

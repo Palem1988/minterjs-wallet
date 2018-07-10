@@ -1,32 +1,33 @@
 # Minter JS Wallet
 
-[![NPM Package](https://img.shields.io/npm/v/ethereumjs-wallet.svg?style=flat-square)](https://www.npmjs.org/package/ethereumjs-wallet)
-[![Build Status](https://travis-ci.org/ethereumjs/ethereumjs-wallet.svg?branch=master)](https://travis-ci.org/ethereumjs/ethereumjs-wallet)
-[![Coverage Status](https://img.shields.io/coveralls/ethereumjs/ethereumjs-wallet.svg?style=flat-square)](https://coveralls.io/r/ethereumjs/ethereumjs-wallet)
+[![NPM Package](https://img.shields.io/npm/v/minterjs-wallet.svg?style=flat-square)](https://www.npmjs.org/package/minterjs-wallet)
+[![Build Status](https://travis-ci.org/MinterTeam/minterjs-wallet.svg?branch=master)](https://travis-ci.org/MinterTeam/minterjs-wallet)
+[![Coverage Status](https://img.shields.io/coveralls/ethereumjs/minterjs-wallet.svg?style=flat-square)](https://coveralls.io/r/MinterTeam/minterjs-wallet)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/MinterTeam/minterjs-wallet/blob/master/LICENSE)
 
-A lightweight wallet implementation. At the moment it supports key creation and conversion between various formats.
+A lightweight Minter Wallet implementation.
 Forked from [ethereumjs-wallet](https://github.com/ethereumjs/ethereumjs-wallet)
 
 It is complemented by the following packages:
-- [ethereumjs-tx](https://github.com/ethereumjs/ethereumjs-tx) to sign transactions
-- [ethereumjs-icap](https://github.com/ethereumjs/ethereumjs-icap) to manipulate ICAP addresses
-- [store.js](https://github.com/marcuswestin/store.js) to use browser storage
+- [minter-js-sdk](https://github.com/MinterTeam/minter-js-sdk) complete JS solution to work with Minter
+- [minterjs-tx](https://github.com/MinterTeam/minterjs-tx) to sign transactions
 
 Motivations are:
 - be lightweight
 - work in a browser
-- use a single, maintained version of crypto library (and that should be in line with `ethereumjs-util` and `ethereumjs-tx`)
-- support import/export between various wallet formats
+- support BIP39 mnemonic phrases
 - support BIP32 HD keys
 
 Features not supported:
 - signing transactions
 - managing storage (neither in node.js or the browser)
+- conversion between various wallet formats
 
 ## Wallet API
 
 Constructors:
 
+* `generate()` - generate an instance based on random BIP39 12 words mnemonic phrase
 * `fromMnemonic(input)` - create an instance based on BIP39 12 words mnemonic phrase
 * `fromPrivateKey(input)` - create an instance based on a raw private key
 * `fromExtendedPrivateKey(input)` - create an instance based on a BIP32 extended private key (xprv)

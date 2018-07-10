@@ -122,6 +122,15 @@ Wallet.prototype.getAddressString = function () {
 }
 
 /**
+ * Generate Wallet from random mnemonic
+ * @return {Wallet}
+ */
+Wallet.generate = function () {
+  const mnemonic = bip39.generateMnemonic()
+  return Wallet.fromMnemonic(mnemonic)
+}
+
+/**
  * MinterWallet from mnemonic phrase
  * @param {string} mnemonic - 12 words
  * @return {Wallet}
