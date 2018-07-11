@@ -9,7 +9,7 @@
   ],
   "scripts": {
     "coverage": "cross-env NODE_ENV=test nyc --reporter=text --cache mocha ./test/*.js",
-    "coveralls": "nyc report --reporter=text-lcov | coveralls",
+    "coveralls": "npm run coverage && nyc report --reporter=text-lcov | coveralls",
     "lint": "standard",
     "prepublishOnly": "npm run lint && npm run test",
     "test": "nyc --reporter=html --reporter=text mocha ./test/*.js",
