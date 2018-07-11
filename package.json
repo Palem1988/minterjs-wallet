@@ -4,16 +4,16 @@
   "description": "Utilities for handling Minter keys",
   "main": "dist/index.js",
   "files": [
-    "dist"
+    "/dist/",
+    "/index.js"
   ],
   "scripts": {
     "coverage": "cross-env NODE_ENV=test nyc --reporter=text --cache mocha ./test/*.js",
     "coveralls": "nyc report --reporter=text-lcov | coveralls",
     "lint": "standard",
-    "prepublishOnly": "npm run lint && npm run test:build",
+    "prepublishOnly": "npm run lint && npm run test",
     "test": "nyc --reporter=html --reporter=text mocha ./test/*.js",
-    "test:build": "npm run build:dist && mocha ./dist/test/*.js",
-    "build:dist": "babel *.js test/*.js -d dist/"
+    "build": "babel *.js -d dist/"
   },
   "repository": {
     "type": "git",
