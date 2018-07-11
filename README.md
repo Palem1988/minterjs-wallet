@@ -1,8 +1,8 @@
 # Minter JS Wallet
 
 [![NPM Package](https://img.shields.io/npm/v/minterjs-wallet.svg?style=flat-square)](https://www.npmjs.org/package/minterjs-wallet)
-[![Build Status](https://travis-ci.org/MinterTeam/minterjs-wallet.svg?branch=master)](https://travis-ci.org/MinterTeam/minterjs-wallet)
-[![Coverage Status](https://img.shields.io/coveralls/ethereumjs/minterjs-wallet.svg?style=flat-square)](https://coveralls.io/r/MinterTeam/minterjs-wallet)
+[![Build Status](https://api.travis-ci.com/MinterTeam/minterjs-wallet.svg?branch=master)](https://travis-ci.com/MinterTeam/minterjs-wallet)
+[![Coverage Status](https://coveralls.io/repos/github/MinterTeam/minterjs-wallet/badge.svg?branch=master)](https://coveralls.io/github/MinterTeam/minterjs-wallet?branch=master)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/MinterTeam/minterjs-wallet/blob/master/LICENSE)
 
 A lightweight Minter Wallet implementation.
