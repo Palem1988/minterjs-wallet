@@ -49,6 +49,8 @@ const Wallet = function (priv, mnemonic) {
   this._mnemonic = mnemonic
 }
 
+const WalletConstructor = {}
+
 Object.defineProperty(Wallet.prototype, 'mnemonic', {
   get: function () {
     assert(this._mnemonic, 'This is a private key only wallet')
@@ -125,9 +127,9 @@ Wallet.prototype.getAddressString = function () {
  * Generate Wallet from random mnemonic
  * @return {Wallet}
  */
-Wallet.generate = function () {
+WalletConstructor.generate = function () {
   const mnemonic = bip39.generateMnemonic()
-  return Wallet.fromMnemonic(mnemonic)
+  return WalletConstructor.fromMnemonic(mnemonic)
 }
 
 /**
@@ -135,7 +137,7 @@ Wallet.generate = function () {
  * @param {string} mnemonic - 12 words
  * @return {Wallet}
  */
-Wallet.fromMnemonic = function (mnemonic) {
+WalletConstructor.fromMnemonic = function (mnemonic) {
   return new Wallet(null, mnemonic)
 }
 
@@ -144,7 +146,7 @@ Wallet.fromMnemonic = function (mnemonic) {
  * @param {Buffer} priv - 64 bytes
  * @return {Wallet}
  */
-Wallet.fromPrivateKey = function (priv) {
+WalletConstructor.fromPrivateKey = function (priv) {
   return new Wallet(priv)
 }
 
@@ -152,11 +154,11 @@ Wallet.fromPrivateKey = function (priv) {
  * @param {string} priv
  * @return {Wallet}
  */
-Wallet.fromExtendedPrivateKey = function (priv) {
+WalletConstructor.fromExtendedPrivateKey = function (priv) {
   assert(priv.slice(0, 4) === 'xprv', 'Not an extended private key')
   let tmp = bs58check.decode(priv)
   assert(tmp[45] === 0, 'Invalid extended private key')
-  return Wallet.fromPrivateKey(tmp.slice(46))
+  return WalletConstructor.fromPrivateKey(tmp.slice(46))
 }
 
-export default Wallet
+export default WalletConstructor
