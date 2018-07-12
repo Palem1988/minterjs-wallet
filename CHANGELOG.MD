@@ -1,3 +1,8 @@
+2.0.2 / 2018-07-12
+------------------
+
+- Move construction methods to separate constructor object
+
 2.0.1 / 2018-07-10
 ------------------
 
