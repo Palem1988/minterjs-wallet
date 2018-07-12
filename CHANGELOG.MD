@@ -1,7 +1,7 @@
-2.0.2 / 2018-07-12
+2.0.4 / 2018-07-12
 ------------------
 
-- Move construction methods to separate constructor object
+- Separate construction methods from Wallet instance
 
 2.0.1 / 2018-07-10
 ------------------

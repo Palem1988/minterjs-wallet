@@ -2,11 +2,11 @@ import assert from 'assert'
 import bip39 from 'bip39'
 import ethUtil from 'ethereumjs-util'
 import {Buffer} from 'safe-buffer'
-import Wallet, {seedFromMnemonic, hdKeyFromSeed} from '../index'
+import { seedFromMnemonic, hdKeyFromSeed, walletFromPrivateKey, walletFromExtendedPrivateKey, walletFromMnemonic, generateWallet } from '../index'
 
 const MNEMONIC = 'exercise fantasy smooth enough arrive steak demise donkey true employ jealous decide blossom bind someone'
 const PRIVATE_KEY = '5fa3a8b186f6cc2d748ee2d8c0eb7a905a7b73de0f2c34c5e7857c3b46f187da'
-const fixturewallet = Wallet.fromMnemonic(MNEMONIC)
+const fixturewallet = walletFromMnemonic(MNEMONIC)
 
 describe('seedFromMnemonic()', () => {
   const seedBuffer = seedFromMnemonic(MNEMONIC)
@@ -65,7 +65,7 @@ describe('.getAddressString()', function () {
 })
 
 describe('generate random wallet', function () {
-  const wallet = Wallet.generate()
+  const wallet = generateWallet()
   it('should have valid mnemonic', () => {
     assert.ok(bip39.validateMnemonic(wallet.getMnemonic()))
   })
@@ -76,14 +76,14 @@ describe('generate random wallet', function () {
 
 describe('private key only wallet', function () {
   const privKey = Buffer.from(PRIVATE_KEY, 'hex')
-  const wallet = Wallet.fromPrivateKey(privKey)
+  const wallet = walletFromPrivateKey(privKey)
   it('.fromPrivateKey() should work', function () {
     assert.equal(wallet.getPublicKey().toString('hex'),
       'f9e036839a29f7fba2d5394bd489eda927ccb95acc99e506e688e4888082b3a3cb8a015b8031d02e79456aedb361fa20ec1a119d6009e5c08e9d1eeb5b29ad92')
   })
   it('.fromPrivateKey() should not accept invalid key', function () {
     assert.throws(function () {
-      Wallet.fromPrivateKey(Buffer.from('001122', 'hex'))
+      walletFromPrivateKey(Buffer.from('001122', 'hex'))
     }, /^Error: Private key does not satisfy the curve requirements \(ie. it is invalid\)$/)
   })
   it('.getAddress() should work', function () {
@@ -99,6 +99,6 @@ describe('private key only wallet', function () {
 describe('.fromExtendedPrivateKey()', function () {
   it('should work', function () {
     const xprv = 'xprv9s21ZrQH143K4KqQx9Zrf1eN8EaPQVFxM2Ast8mdHn7GKiDWzNEyNdduJhWXToy8MpkGcKjxeFWd8oBSvsz4PCYamxR7TX49pSpp3bmHVAY'
-    assert.equal(Wallet.fromExtendedPrivateKey(xprv).getAddressString(), 'Mxb800bf5435f67c7ee7d83c3a863269969a57c57c')
+    assert.equal(walletFromExtendedPrivateKey(xprv).getAddressString(), 'Mxb800bf5435f67c7ee7d83c3a863269969a57c57c')
   })
 })
