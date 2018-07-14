@@ -11,6 +11,7 @@ Forked from [ethereumjs-wallet](https://github.com/ethereumjs/ethereumjs-wallet)
 It is complemented by the following packages:
 - [minter-js-sdk](https://github.com/MinterTeam/minter-js-sdk) complete JS solution to work with Minter
 - [minterjs-tx](https://github.com/MinterTeam/minterjs-tx) to sign transactions
+- [minterjs-util](https://github.com/MinterTeam/minterjs-util) utility functions
 
 Motivations are:
 - be lightweight
