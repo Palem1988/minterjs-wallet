@@ -4,7 +4,7 @@
     "text-summary"
   ],
   "require": [
-    "babel-register"
+    "./babel-register.config"
   ],
   "sourceMap": false,
   "instrument": false

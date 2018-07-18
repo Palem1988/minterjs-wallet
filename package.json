@@ -1,6 +1,6 @@
 {
   "name": "minterjs-wallet",
-  "version": "2.0.4",
+  "version": "2.1.0",
   "description": "Utilities for handling Minter keys",
   "main": "dist/index.js",
   "files": [
@@ -11,7 +11,8 @@
     "coverage": "cross-env NODE_ENV=test nyc --reporter=text --cache mocha ./test/*.js",
     "coveralls": "npm run coverage && nyc report --reporter=text-lcov | coveralls",
     "lint": "standard",
-    "prepublish": "npm run lint && npm run test && npm run build",
+    "lint:fix": "standard --fix",
+    "prepublishOnly": "npm run lint && npm run test && npm run build",
     "test": "nyc --reporter=html --reporter=text mocha ./test/*.js",
     "build": "babel *.js -d dist/"
   },
@@ -34,6 +35,7 @@
     "bs58check": "^2.1.1",
     "ethereumjs-util": "^5.1.4",
     "hdkey": "^1.0.0",
+    "minterjs-util": "0.0.6",
     "safe-buffer": "^5.1.1"
   },
   "devDependencies": {

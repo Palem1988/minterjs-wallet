@@ -48,7 +48,7 @@ describe('.getPublicKey()', function () {
 
 describe('.getPublicKeyString()', function () {
   it('should work', function () {
-    assert.equal(fixturewallet.getPublicKeyString(), 'f9e036839a29f7fba2d5394bd489eda927ccb95acc99e506e688e4888082b3a3cb8a015b8031d02e79456aedb361fa20ec1a119d6009e5c08e9d1eeb5b29ad92')
+    assert.equal(fixturewallet.getPublicKeyString(), 'Mpf9e036839a29f7fba2d5394bd489eda927ccb95acc99e506e688e4888082b3a3')
   })
 })
 

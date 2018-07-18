@@ -1,6 +1,7 @@
 import bip39 from 'bip39'
 import hdKey from 'hdkey'
 import ethUtil from 'ethereumjs-util'
+import {publicToString} from 'minterjs-util'
 import bs58check from 'bs58check'
 
 function assert (val, msg) {
@@ -27,6 +28,11 @@ export function hdKeyFromSeed (seed) {
   return hdKey.fromMasterSeed(seed).derive("m/44'/60'/0'/0").deriveChild(0)
 }
 
+/**
+ * @param {Buffer} [priv]
+ * @param {string} [mnemonic]
+ * @constructor
+ */
 const Wallet = function (priv, mnemonic) {
   if (priv && mnemonic) {
     throw new Error('Cannot supply both a private and a mnemonic phrase to the constructor')
@@ -104,7 +110,7 @@ Wallet.prototype.getPublicKey = function () {
  * @return {string}
  */
 Wallet.prototype.getPublicKeyString = function () {
-  return this.getPublicKey().toString('hex')
+  return publicToString(this.getPublicKey())
 }
 
 /**

@@ -1,3 +1,9 @@
+2.1.0 / 2018-07-18
+------------------
+
+- Change public key string format to Minter style `Mp...`
+- Explicitly set options to `babel-register` instead of `.babelrc` lookup
+
 2.0.4 / 2018-07-12
 ------------------
 
