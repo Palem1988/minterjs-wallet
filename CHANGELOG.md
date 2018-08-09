@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 (modification: no type change headlines) and this project adheres to 
 [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## 2.1.1 - 2018-08-09
+- Move source to /src directory (from ethereumjs-wallet merge) 
+- Add `module` field to package.json
 
 ## 2.1.0 - 2018-07-18
 - Change public key string format to Minter style `Mp...`
@@ -28,7 +31,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 - fork from [ethereumjs-wallet](https://github.com/ethereumjs/ethereumjs-wallet)
 - update address string format to `Mx`
 - remove `0x` from keys string format
-
 
 
 ## [0.6.1] - 2018-07-28

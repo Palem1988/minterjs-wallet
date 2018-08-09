@@ -1,8 +1,9 @@
 {
   "name": "minterjs-wallet",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "description": "Utilities for handling Minter keys",
   "main": "dist/index.js",
+  "module": "src/index.js",
   "files": [
     "/dist/",
     "/src/"
