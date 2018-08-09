@@ -2,7 +2,7 @@ import assert from 'assert'
 import bip39 from 'bip39'
 import ethUtil from 'ethereumjs-util'
 import {Buffer} from 'safe-buffer'
-import Wallet, { seedFromMnemonic, hdKeyFromSeed, walletFromPrivateKey, walletFromExtendedPrivateKey, walletFromMnemonic, generateWallet } from '../index'
+import Wallet, { seedFromMnemonic, hdKeyFromSeed, walletFromPrivateKey, walletFromExtendedPrivateKey, walletFromMnemonic, generateWallet } from '../src/index'
 
 const MNEMONIC = 'exercise fantasy smooth enough arrive steak demise donkey true employ jealous decide blossom bind someone'
 const PRIVATE_KEY = '5fa3a8b186f6cc2d748ee2d8c0eb7a905a7b73de0f2c34c5e7857c3b46f187da'
