@@ -26,23 +26,90 @@ Features not supported:
 
 ## Wallet API
 
-Constructors:
+### Construction methods:
 
-* `generate()` - generate an instance based on random BIP39 12 words mnemonic phrase
-* `fromMnemonic(input)` - create an instance based on BIP39 12 words mnemonic phrase
-* `fromPrivateKey(input)` - create an instance based on a raw private key
-* `fromExtendedPrivateKey(input)` - create an instance based on a BIP32 extended private key (xprv)
+#### `generateWallet()`
+Generates wallet from a random BIP39 mnemonic phrase (uses `bip39.generateMnemonic()` under the hood).
+```js
+import {generateWallet} from 'minterjs-wallet';
+const wallet = generateWallet();
+```
 
-Instance methods:
+#### `walletFromMnemonic(mnemonic)`
+Create a wallet instance based on BIP39 12 words mnemonic phrase
+```js
+import {walletFromMnemonic} from 'minterjs-wallet';
+const wallet = walletFromMnemonic('surround tape away million into program organ tonight write prefer inform cool');
+```
 
-* `getMnemonic()` - return the mnemonic phrase (12 words string)
-* `getPrivateKey()` - return the private key
-* `getPublicKey()` - return the public key
-* `getAddress()` - return the address
+#### `walletFromPrivateKey(privateKey)`
+Create a wallet instance based on a raw private key
+```js
+import {walletFromPrivateKey} from 'minterjs-wallet';
+import {Buffer} from 'safe-buffer';
+const privateKeyBuffer = Buffer.from('ef2af2385681c490bc473c2f7e6097fc1a38e6f67b44b81a3350a6583aadd144', 'hex')
+const wallet = walletFromPrivateKey(privateKeyBuffer);
+```
 
-All of the above instance methods (expect mnemonic) return a Buffer or JSON. Use the `String` suffixed versions for a string output, such as `getPrivateKeyString()`.
+#### `walletFromExtendedPrivateKey(extendedPrivateKeyString)`
+Create an instance based on a BIP32 extended private key (xprv)
+```js
+import {walletFromExtendedPrivateKey} from 'minterjs-wallet';
+const wallet = walletFromExtendedPrivateKey('xprv9s21ZrQH143K4KqQx9Zrf1eN8EaPQVFxM2Ast8mdHn7GKiDWzNEyNdduJhWXToy8MpkGcKjxeFWd8oBSvsz4PCYamxR7TX49pSpp3bmHVAY');
+```
 
-Note: `getPublicKey()` only returns uncompressed Ethereum-style public keys.
+
+### Wallet instance methods:
+
+#### `.getAddress()`
+Return the address: 20 bytes length Buffer or Uint8Array
+```js
+wallet.getAddress();
+// [88,108,62,182,16,84,7,36,101,31,244,29,32,158,20,41,238,62,68,154]
+```
+
+#### `.getAddressString()`
+Return the Minter-style address
+```js
+wallet.getAddress();
+// 'Mx586c3eb610540724651ff41d209e1429ee3e449a'
+```
+
+#### `.getMnemonic()`
+Return the mnemonic phrase: 12 words string. 
+**Note:** Only works with instance created/generated from mnemonic, otherwise it will throw an error.
+```js
+wallet.getMnemonic();
+// 'surround tape away million into program organ tonight write prefer inform cool'
+```
+
+#### `.getPrivateKey()`
+Return the private key: 32 bytes length Buffer or Uint8Array
+```js
+wallet.getPrivateKey();
+// [239,42,242,56,86,129,196,144,188,71,60,47,126,96,151,252,26,56,230,246,123,68,184,26,51,80,166,88,58,173,209,68]
+```
+
+#### `.getPrivateKeyString()`
+Return the private key string of 64 hex characters
+```js
+wallet.getPrivateKeyString();
+// 'ef2af2385681c490bc473c2f7e6097fc1a38e6f67b44b81a3350a6583aadd144'
+```
+
+#### `.getPublicKey()`
+Return the uncompressed Ethereum-style public key: 64 bytes length Buffer or Uint8Array
+```js
+wallet.getPublicKey();
+// [251,82,201,189,133,251,174,27,6,6,18,34,12,222,116,254,99,169,65,249,135,81,170,13,35,99,50,6,231,95,48,69,41,47,96,75,240,242,9,77,23,168,173,59,137,223,128,80,144,69,34,91,145,21,255,133,112,189,68,8,42,245,210,116]
+```
+
+#### `.getPublicKeyString()`
+Return the Minter-style public key string
+```js
+wallet.getPublicKeyString();
+// 'Mpfb52c9bd85fbae1b060612220cde74fe63a941f98751aa0d23633206e75f3045'
+```
 
 ## License
 
