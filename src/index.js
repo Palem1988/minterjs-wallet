@@ -1,7 +1,7 @@
 import bip39 from 'bip39'
 import hdKey from 'hdkey'
 import ethUtil from 'ethereumjs-util'
-import {publicToString} from 'minterjs-util'
+import { publicToString } from 'minterjs-util'
 import bs58check from 'bs58check'
 
 function assert (val, msg) {
@@ -163,6 +163,23 @@ export function walletFromExtendedPrivateKey (priv) {
   let tmp = bs58check.decode(priv)
   assert(tmp[45] === 0, 'Invalid extended private key')
   return walletFromPrivateKey(tmp.slice(46))
+}
+
+/**
+ * Generate 12 words mnemonic phrase
+ * @return {string}
+ */
+export function generateMnemonic () {
+  return bip39.generateMnemonic()
+}
+
+/**
+ * Check that mnemonic phrase has 12 words and represents valid entropy
+ * @param {string} mnemonic
+ * @return {boolean}
+ */
+export function isValidMnemonic (mnemonic) {
+  return typeof mnemonic === 'string' && mnemonic.trim().split(/\s+/g).length >= 12 && bip39.validateMnemonic(mnemonic)
 }
 
 export default Wallet

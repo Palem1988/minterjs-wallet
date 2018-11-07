@@ -111,6 +111,24 @@ wallet.getPublicKeyString();
 // 'Mpfb52c9bd85fbae1b060612220cde74fe63a941f98751aa0d23633206e75f3045'
 ```
 
+### Mnemonic
+
+#### `generateMnemonic()`
+Generate random 12 words mnemonic phrase. Exposed `bip39.generateMnemonic()`.
+```js
+import {generateMnemonic} from 'minterjs-wallet';
+const mnemonic = generateMnemonic();
+// 'surround tape away million into program organ tonight write prefer inform cool'
+```
+
+#### `isValidMnemonic(mnemonic)`
+Check that given mnemonic is valid, returns `boolean`, uses `bip39.validateMnemonic()` under the hood.
+```js
+import {isValidMnemonic} from 'minterjs-wallet';
+const isValid = isValidMnemonic('surround tape away million into program organ tonight write prefer inform cool');
+// true
+```
+
 ## License
 
 MIT License
