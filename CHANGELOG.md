@@ -5,6 +5,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 (modification: no type change headlines) and this project adheres to 
 [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## 2.2.1 - 2018-11-30
+- Update deps 
+
+## 2.2.0 - 2018-11-97
+- Add `generateMnemonic()` and `isValidMnemonic()` methods
+
 ## 2.1.1 - 2018-08-09
 - Move source to /src directory (from ethereumjs-wallet merge) 
 - Add `module` field to package.json

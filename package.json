@@ -1,6 +1,6 @@
 {
   "name": "minterjs-wallet",
-  "version": "2.2.0",
+  "version": "2.2.1",
   "description": "Utilities for handling Minter keys",
   "main": "dist/index.js",
   "module": "src/index.js",
@@ -15,8 +15,12 @@
     "lint:fix": "standard --fix",
     "prepublishOnly": "npm run lint && npm run test && npm run build",
     "test": "nyc --reporter=html --reporter=text mocha ./test/*.js",
-    "build": "babel src/ -d dist/"
+    "build": "babel src/ -d dist/",
+    "precommit": "echo 'Pre-commit checks...' && npm run lint"
   },
+  "pre-commit": [
+    "precommit"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/MinterTeam/minterjs-wallet.git"
@@ -36,7 +40,7 @@
     "bs58check": "^2.1.2",
     "ethereumjs-util": "^6.0.0",
     "hdkey": "^1.1.0",
-    "minterjs-util": "0.0.6",
+    "minterjs-util": "0.2.2",
     "safe-buffer": "^5.1.2"
   },
   "devDependencies": {
@@ -48,6 +52,7 @@
     "istanbul": "^0.4.5",
     "mocha": "^5.2.0",
     "nyc": "^13.1.0",
+    "pre-commit": "^1.2.2",
     "standard": "^12.0.1"
   },
   "standard": {
