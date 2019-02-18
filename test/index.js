@@ -1,6 +1,6 @@
 import assert from 'assert'
 import bip39 from 'bip39'
-import ethUtil from 'ethereumjs-util'
+import { isValidPrivate } from 'ethereumjs-util'
 import { Buffer } from 'safe-buffer'
 import Wallet, { seedFromMnemonic, hdKeyFromSeed, walletFromPrivateKey, walletFromExtendedPrivateKey, walletFromMnemonic, generateWallet, isValidMnemonic } from '../src/index'
 
@@ -70,7 +70,7 @@ describe('generate random wallet', function () {
     assert.ok(bip39.validateMnemonic(wallet.getMnemonic()))
   })
   it('should have valid private key', () => {
-    assert.ok(ethUtil.isValidPrivate(wallet.getPrivateKey()))
+    assert.ok(isValidPrivate(wallet.getPrivateKey()))
   })
 })
 

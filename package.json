@@ -1,6 +1,6 @@
 {
   "name": "minterjs-wallet",
-  "version": "2.2.1",
+  "version": "2.2.2",
   "description": "Utilities for handling Minter keys",
   "main": "dist/index.js",
   "module": "src/index.js",
@@ -38,20 +38,20 @@
   "dependencies": {
     "bip39": "^2.5.0",
     "bs58check": "^2.1.2",
-    "ethereumjs-util": "^6.0.0",
-    "hdkey": "^1.1.0",
-    "minterjs-util": "0.2.2",
+    "ethereumjs-util": "^6.1.0",
+    "hdkey": "^1.1.1",
+    "minterjs-util": "0.3.1",
     "safe-buffer": "^5.1.2"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
-    "babel-plugin-istanbul": "^5.1.0",
+    "babel-plugin-istanbul": "^5.1.1",
     "babel-preset-env": "^1.7.0",
     "coveralls": "^3.0.2",
     "cross-env": "^5.2.0",
     "istanbul": "^0.4.5",
     "mocha": "^5.2.0",
-    "nyc": "^13.1.0",
+    "nyc": "^13.3.0",
     "pre-commit": "^1.2.2",
     "standard": "^12.0.1"
   },

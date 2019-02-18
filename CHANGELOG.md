@@ -5,6 +5,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 (modification: no type change headlines) and this project adheres to 
 [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## 2.2.2 - 2019-02-18
+- Update deps 
+- fix ethereumjs-util
+
 ## 2.2.1 - 2018-11-30
 - Update deps 
 

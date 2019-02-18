@@ -1,6 +1,6 @@
 import bip39 from 'bip39'
 import hdKey from 'hdkey'
-import ethUtil from 'ethereumjs-util'
+import { isValidPrivate, privateToPublic, publicToAddress } from 'ethereumjs-util'
 import { publicToString } from 'minterjs-util'
 import bs58check from 'bs58check'
 
@@ -38,7 +38,7 @@ const Wallet = function (priv, mnemonic) {
     throw new Error('Cannot supply both a private and a mnemonic phrase to the constructor')
   }
 
-  if (priv && !ethUtil.isValidPrivate(priv)) {
+  if (priv && !isValidPrivate(priv)) {
     throw new Error('Private key does not satisfy the curve requirements (ie. it is invalid)')
   }
 
@@ -72,7 +72,7 @@ Object.defineProperty(Wallet.prototype, 'privKey', {
 Object.defineProperty(Wallet.prototype, 'pubKey', {
   get: function () {
     if (!this._pubKey) {
-      this._pubKey = ethUtil.privateToPublic(this.privKey)
+      this._pubKey = privateToPublic(this.privKey)
     }
     return this._pubKey
   }
@@ -117,7 +117,7 @@ Wallet.prototype.getPublicKeyString = function () {
  * @return {Buffer}
  */
 Wallet.prototype.getAddress = function () {
-  return ethUtil.publicToAddress(this.pubKey)
+  return publicToAddress(this.pubKey)
 }
 
 /**
