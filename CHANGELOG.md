@@ -5,6 +5,14 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 (modification: no type change headlines) and this project adheres to 
 [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## 3.0.0 - 2019-02-27
+Align package structure to other minterjs packages.
+- **BREAKING** dist/index.js now contain UMD build without es modules 
+- add UMD and commonjs builds
+- replace `mocha` with `jest`
+- replace `standard` with `eslint`'s airbnb config
+- update deps
+
 ## 2.2.2 - 2019-02-18
 - Update deps 
 - fix ethereumjs-util
