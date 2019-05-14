@@ -1,4 +1,5 @@
-import bip39 from 'bip39';
+// @TODO remove some wordlists
+import * as bip39 from 'bip39';
 import hdKey from 'hdkey';
 import { isValidPrivate, privateToPublic, publicToAddress } from 'ethereumjs-util';
 import { publicToString } from 'minterjs-util';
@@ -16,7 +17,7 @@ function assert(val, msg) {
  * @return {Buffer}
  */
 export function seedFromMnemonic(mnemonic) {
-    return bip39.mnemonicToSeed(mnemonic);
+    return bip39.mnemonicToSeedSync(mnemonic);
 }
 
 /**

@@ -16,15 +16,11 @@ export default {
         commonjs({
             namedExports: {
                 'node_modules/ethereumjs-util/dist/index.js': [ 'stripHexPrefix', 'padToEven' ],
-                'node_modules/minterjs-util/dist/index.js': [ 'publicToString '],
             }
         }),
         // globals(),
         // builtins(),
-        babel({
-            babelrc: false,
-            presets: [['@babel/preset-env', { modules: false }]],
-        }),
+        babel(),
         terser(), // uglifyjs alternative with es6 support
     ],
     output: {

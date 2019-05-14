@@ -1,5 +1,5 @@
 import assert from 'assert';
-import bip39 from 'bip39';
+import * as bip39 from 'bip39';
 import { isValidPrivate } from 'ethereumjs-util';
 import { Buffer } from 'safe-buffer';
 import Wallet, {

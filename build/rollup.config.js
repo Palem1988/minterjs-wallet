@@ -19,16 +19,11 @@ export default {
         commonjs({
             namedExports: {
                 'node_modules/ethereumjs-util/dist/index.js': [ 'stripHexPrefix', 'padToEven' ],
-                //@TODO `browser` field is used instead of `module`, can be fixed after merge https://github.com/rollup/rollup-plugin-node-resolve/pull/182
-                'node_modules/minterjs-util/dist/index.js': [ 'publicToString '],
             },
         }),
         // globals(),
         // builtins(),
-        babel({
-            babelrc: false,
-            presets: [['@babel/preset-env', { modules: false }]],
-        }),
+        babel(),
     ],
     output: {
         file: 'dist/index.js',
