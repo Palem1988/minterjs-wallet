@@ -1,6 +1,6 @@
 {
   "name": "minterjs-wallet",
-  "version": "3.0.2",
+  "version": "3.0.3",
   "description": "Utilities for handling Minter keys",
   "main": "dist/cjs/index.js",
   "module": "src/index.js",
@@ -52,29 +52,29 @@
     "elliptic": "github:shrpne/elliptic#ab34e0f08994bcad9fa986899cd8d1ae4436d66e",
     "ethereumjs-util": "^6.1.0",
     "hdkey": "^1.1.1",
-    "minterjs-util": "0.8.0",
+    "minterjs-util": "0.8.1",
     "safe-buffer": "^5.1.2"
   },
   "devDependencies": {
     "@babel/cli": "^7.4.4",
-    "@babel/core": "^7.4.4",
-    "@babel/preset-env": "^7.4.4",
+    "@babel/core": "^7.4.5",
+    "@babel/preset-env": "^7.4.5",
     "babel-jest": "^24.8.0",
     "coveralls": "^3.0.3",
     "eslint": "^5.16.0",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-import-resolver-alias": "^1.1.2",
-    "eslint-plugin-import": "^2.17.2",
+    "eslint-plugin-import": "^2.17.3",
     "jest": "^24.8.0",
     "jest-environment-jsdom": "^24.8.0",
     "pre-commit": "^1.2.2",
-    "rollup": "^1.11.3",
+    "rollup": "^1.14.2",
     "rollup-plugin-babel": "^4.3.2",
-    "rollup-plugin-commonjs": "^9.3.4",
+    "rollup-plugin-commonjs": "^10.0.0",
     "rollup-plugin-json": "^4.0.0",
     "rollup-plugin-node-builtins": "^2.1.2",
     "rollup-plugin-node-globals": "^1.4.0",
-    "rollup-plugin-node-resolve": "^4.2.4",
-    "rollup-plugin-terser": "^4.0.4"
+    "rollup-plugin-node-resolve": "^5.0.1",
+    "rollup-plugin-terser": "^5.0.0"
   }
 }
