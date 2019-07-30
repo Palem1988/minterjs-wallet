@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="../dist/index.js" onerror="alert('Error')"></script>
+    <script>
+        try {
+            console.log(minterWallet)
+            const wallet = minterWallet.generateWallet();
+            console.log(wallet)
+        } catch (e) {
+            console.log(e);
+            alert('Error');
+        }
+
+
+        if (!Object.keys(minterWallet).length) {
+            alert('Error')
+        } else {
+            alert('Ok')
+        }
+    </script>
+</head>
+<body>
+
+
+</body>
+</html>

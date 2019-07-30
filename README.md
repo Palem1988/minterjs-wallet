@@ -24,6 +24,20 @@ Features not supported:
 - managing storage (neither in node.js or the browser)
 - conversion between various wallet formats
 
+## Install
+
+```npm install minterjs-wallet```
+
+or from browser
+
+```html
+<script src="https://unpkg.com/minterjs-wallet"></script>
+<script>
+const wallet = minterWallet.generateWallet();
+const wallet2 = minterWallet.walletFromMnemonic('...');
+</script>
+```
+
 ## Wallet API
 
 ### Construction methods:
